@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="history.go(-1)">返回</button>
+    <h2>push模式</h2>
+    <ul>
+        <li onclick="router.push('/')">首页</li>
+        <li onclick="router.push('/news')">新闻</li>
+        <li onclick="router.push('/product')">产品</li>
+    </ul>
+    <div id="app"></div>
+    <script>
+
+        function Router() {
+            this.routes = {}
+            this.url = ''
+            this.init()
+        }
+        Router.prototype.route = function (path, callback) {
+            this.routes[path] = callback || function () { }
+        }
+        Router.prototype.init = function (path, callback) {
+            window.addEventListener("load", this.hashchange.bind(this));
+            window.addEventListener('hashchange', this.hashchange.bind(this))
+        }
+        Router.prototype.hashchange = function () {
+            this.url = window.location.hash.slice(1) || '/';
+            this.routes[this.url]();
+        }
+        // push模式页面跳转
+        Router.prototype.push = function (url) {
+            url = "#" + url;
+            window.location.href = url;
+        }
+
+        var router = new Router()
+        router.route('/', function () {
+            app.innerHTML = "首页"
+        })
+        router.route('/news', function () {
+            app.innerHTML = "新闻"
+        })
+        router.route('/product', function () {
+            app.innerHTML = "产品"
+        })
+        console.log(router)
+    </script>
+
+</body>
+
+</html>
