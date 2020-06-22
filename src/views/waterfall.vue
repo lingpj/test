@@ -136,9 +136,11 @@ export default {
       let box = self.$refs.fallbox; //获取到盒子相对于文档的位置
       let top = self.computedOffset(box, "offsetTop");
       
-      let height = box.offsetHeight; //可视区高度
+      let height = box.offsetHeight;
+       //可视区高度
       
-      let clientHeight = document.documentElement.clientHeight; //滚动距离
+      let clientHeight = document.documentElement.clientHeight; 
+      //滚动距离
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
       console.log(height,clientHeight,scrollTop,e)
       if (
