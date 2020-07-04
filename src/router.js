@@ -18,6 +18,9 @@ import wxLongImg from './views/wxLongImg.vue'
 import flex from './views/flex.vue'
 import prototype from './views/prototype.vue'
 import newInstentof from './views/new-instentof.vue'
+import symbol from './views/symbol.vue'
+import provideInject from './views/provideInject.vue'
+
 
 import App from './App.vue'
 Vue.use(Router)
@@ -39,5 +42,8 @@ export default new Router({
     { path: '/flex', name: 'flex', component: flex },
     { path: '/prototype', name: 'prototype', component: prototype },
     { path: '/new-instentof', name: 'newInstentof', component: newInstentof },
+    { path: '/symbol', name: 'symbol', component: symbol },
+    { path: '/provideInject', name: 'provideInject', component: provideInject },
+    
   ]
 })

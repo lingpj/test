@@ -54,9 +54,6 @@ export default {
   },
   mounted() {
 
-    
-   
-
 
 
     // this.$myAlert({
@@ -83,11 +80,19 @@ export default {
     })
     console.log(list.join(''))
 
+
+    var str2 = '1234567890'
+    console.log(str2.replace( /(\d{4})\B/g,'$1,'))
+
+
+
     
 
     this.getPosition().then(res=>{
       console.log('定位》',res)
     })
+
+
     
 
   },
